@@ -318,6 +318,74 @@
             border-radius: 50%;
             cursor: pointer;
         }
+
+        /* ============================= */
+        /* Background Image Section */
+        /* ============================= */
+
+        .bg-section {
+            margin: 30px 0;
+            height: 260px;
+            /* mobile friendly */
+            border-radius: 20px;
+            background-image: url("images/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        /* dark overlay */
+        .bg-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* text on image */
+        .bg-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 15px;
+        }
+
+        .bg-text h2 {
+            font-size: 1.6rem;
+            /* perfect for mobile */
+            margin-bottom: 8px;
+        }
+
+        .bg-text p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            max-width: 90%;
+        }
+
+        /* ============================= */
+        /* Mobile adjustments */
+        /* ============================= */
+        @media (min-width: 768px) {
+            .bg-section {
+                height: 360px;
+            }
+
+            .bg-text h2 {
+                font-size: 2.2rem;
+            }
+
+            .bg-text p {
+                font-size: 1.1rem;
+                max-width: 600px;
+            }
+        }
     </style>
 </head>
 <div id="slider" style="display:none;position:fixed;inset:0;
