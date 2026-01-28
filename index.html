@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Joyeta 💖</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fde2e4, #f3c4fb, #e7c6ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 35px;
+            max-width: 900px;
+            width: 95%;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, .25);
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            color: #ff4f7a;
+            font-size: 2.6rem;
+        }
+
+        .subtitle {
+            margin: 10px 0 20px;
+            color: #444;
+            font-size: 1.1rem;
+        }
+
+
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0 15px 35px rgba(255, 79, 122, .4);
+            transition: .3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: .4s;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Love letter popup */
+        .letter {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .letter-box {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            max-width: 400px;
+            text-align: center;
+            animation: pop .6s ease;
+        }
+
+        .letter-box h2 {
+            color: #ff4f7a;
+        }
+
+        .close {
+            margin-top: 15px;
+            background: #ff4f7a;
+        }
+
+        /* Hearts */
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            color: #ff4f7a;
+            animation: float 6s linear infinite;
+            opacity: .8;
+        }
+
+        #countdown {
+            font-weight: 600;
+            color: #ff4f7a;
+            margin-bottom: 15px;
+        }
+
+        body.dark {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+
+        body.dark .container {
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+        }
+
+        body.dark h1 {
+            color: #ff9dbb;
+        }
+
+        #galleryModal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+
+        #galleryModal img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        #closeGallery {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .gallery-controls {
+            margin-top: 20px;
+        }
+
+        .gallery-controls button {
+            background: #FF7882;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+
+
+
+
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(.6);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        #galleryModal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+
+        #galleryModal img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Background Image Section */
+        .bg-section {
+            margin: 40px 0;
+            height: 350px;
+            border-radius: 25px;
+            background-image: url("images/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Dark overlay for readability */
+        .bg-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        /* Text on background image */
+        .bg-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .bg-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .bg-text p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+
+        #closeGallery {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .gallery-controls {
+            margin-top: 20px;
+        }
+
+        .gallery-controls button {
+            background: #FF7882;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<div id="slider" style="display:none;position:fixed;inset:0;
+background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
+    <img id="sliderImg" style="max-width:90%;max-height:90%;border-radius:20px;">
+</div>
+
+<div id="promiseScreen" style="
+display:none;
+position:fixed;
+inset:0;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+z-index:999;
+justify-content:center;
+align-items:center;
+text-align:center;
+flex-direction:column;
+padding:30px;
+">
+
+    <button onclick="closePromise()" style="
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:rgba(255,255,255,0.25);
+    border:none;
+    color:white;
+    padding:10px 18px;
+    border-radius:20px;
+    font-size:1rem;
+    cursor:pointer;">
+        ← Back
+    </button>
+
+    <h1 style="font-size:2.5rem;">Joyeta 💖</h1>
+
+    <p style="font-size:1.2rem;max-width:500px;line-height:1.8;margin:20px 0;">
+        From today, tomorrow, and every version of forever ♾️
+        I choose you — in smiles, in silence, in everything 💕
+    </p>
+
+    <h2>💍 Forever Yours</h2>
+</div>
+
+<div id="galleryModal">
+    <span id="closeGallery">✕</span>
+
+    <img id="galleryImage" src="images/photo1.jpg">
+
+
+    <div class="gallery-controls">
+
+        <button onclick="prevImg()">❮</button>
+        <button onclick="nextImg()">❯</button>
+    </div>
+</div>
+
+
+
+<body>
+
+    <div class="container">
+
+
+        <h1>Happy Birthday Joyeta 🎂💖</h1>
+        <p class="subtitle">My cutest forever 🧸✨</p>
+        <p id="countdown" class="subtitle"></p>
+
+        <p class="Babeee, every smile of yours feels like home to me 💕
+            These memories, this song, this little surprise —
+            all of it is just a small reflection of how much you mean to me 💖" id="typeText">
+        </p>
+
+        <button onclick="playMusic()">Play Our Song 🎶</button>
+        <button onclick="openLetter()">Open Love Letter 💌</button>
+        <button onclick="confettiBlast()">Birthday Magic 🎉</button>
+        <button onclick="showPromise()">Forever Promise 💍</button>
+
+        <button id="openGallery">Our Memories 📸</button>
+
+        <button onclick="toggleDark()">Night Mode 🌙</button>
+
+        <div class="bg-section">
+            <div class="bg-text">
+                <h2>Forever Us 💞</h2>
+                <p>
+                    Every picture tells a story,
+                    but with you… every moment feels magical ✨
+                    Happy Birthday, my Joyeta 💖
+                </p>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <img src="images/pic1.jpg">
+            <img src="images/pic2.jpg">
+            <img src="images/pic3.jpg">
+            <img src="images/pic4.jpg">
+
+        </div>
+    </div>
+
+    <div class="letter" id="letter">
+        <div class="letter-box">
+            <h2>You Know? 💖</h2>
+            <p>
+                you are my happiest thought and I promise to love you a little more every day 💕
+            </p>
+            <button class="close" onclick="closeLetter()">Forever Yours 😘</button>
+        </div>
+    </div>
+
+    <audio id="music" src="music.mp3/WhatsApp Audio 2026-01-29 at 01.23.04_c0b06f2e.mp3"></audio>
+
+
+
+
+    <script>
+
+        function playMusic() {
+            document.getElementById("music").play();
+        }
+
+        function openLetter() {
+            document.getElementById("letter").style.display = "flex";
+        }
+
+        function closeLetter() {
+            document.getElementById("letter").style.display = "none";
+        }
+
+        /* hearts */
+        setInterval(() => {
+            const h = document.createElement("div");
+            h.className = "heart";
+            h.innerHTML = "❤️";
+            h.style.left = Math.random() * 100 + "vw";
+            h.style.fontSize = (15 + Math.random() * 25) + "px";
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 6000);
+        }, 300);
+        function openSlider(src) {
+            document.getElementById("slider").style.display = "flex";
+            document.getElementById("sliderImg").src = src;
+        }
+
+        document.getElementById("slider").onclick = function () {
+            this.style.display = "none";
+        }
+        function toggleDark() {
+            document.body.classList.toggle("dark");
+        }
+        function showPromise() {
+            document.getElementById("promiseScreen").style.display = "flex";
+        }
+        function closePromise() {
+            document.getElementById("promiseScreen").style.display = "none";
+        }
+
+
+
+
+
+
+        const images = [
+            "images/pic1.jpg",
+            "images/pic2.jpg",
+            "images/pic3.jpg",
+            "images/pic4.jpg",
+            "images/pic5.jpg",
+            "images/pic6.jpg",
+            "images/pic7.jpg",
+            "images/pic8.jpg",
+            "images/pic9.jpg",
+        ];
+
+        let currentIndex = 0;
+
+        const modal = document.getElementById("galleryModal");
+        const galleryImg = document.getElementById("galleryImage");
+
+        document.getElementById("openGallery").onclick = () => {
+            modal.style.display = "flex";
+            galleryImg.src = images[currentIndex];
+        };
+
+        document.getElementById("closeGallery").onclick = () => {
+            modal.style.display = "none";
+        };
+
+        function nextImg() {
+            currentIndex = (currentIndex + 1) % images.length;
+            galleryImg.src = images[currentIndex];
+        }
+
+        function prevImg() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            galleryImg.src = images[currentIndex];
+        }
+
+
+
+        // SET JOYETA'S BIRTHDAY DATE (YYYY, MM-1, DD)
+        const birthday = new Date(2006, 1, 29); // example: Feb 14, 2026
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = birthday - now;
+
+            if (diff <= 0) {
+                document.getElementById("countdown").innerHTML =
+                    "🎉 It’s your special day, Joyeta! 🎂💖";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const mins = Math.floor((diff / (1000 * 60)) % 60);
+
+            document.getElementById("countdown").innerHTML =
+                `⏳ ${days} days ${hours} hrs ${mins} mins to your birthday 🎀`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        const text = `Babeee, you are my calm in chaos, my smile on bad days,
+and my favorite notification 💕
+Every moment with you feels soft, safe, and magical ✨
+Happy Birthday🧸💖`;
+
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typeText").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 40);
+            }
+        }
+        typeWriter();
+        function confettiBlast() {
+            for (let i = 0; i < 120; i++) {
+                const c = document.createElement("div");
+                c.style.position = "fixed";
+                c.style.width = "8px";
+                c.style.height = "8px";
+                c.style.background = `hsl(${Math.random() * 360},80%,70%)`;
+                c.style.left = Math.random() * 100 + "vw";
+                c.style.top = "-10px";
+                c.style.opacity = 0.9;
+                c.style.borderRadius = "50%";
+                c.style.animation = `fall ${3 + Math.random() * 3}s linear`;
+                document.body.appendChild(c);
+                setTimeout(() => c.remove(), 6000);
+            }
+        }
+        const style = document.createElement("style");
+
+        style.innerHTML = ` @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(720deg);
+            }
+        }
+
+        `;
+        document.head.appendChild(style);
+
+    </script>
+
+</body>
+
+</html>
